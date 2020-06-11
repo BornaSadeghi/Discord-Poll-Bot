@@ -1,0 +1,22 @@
+{
+  "name": "discord-poll-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot that allows users to create, manage and vote on polls.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BornaSadeghi/Discord-Poll-Bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BornaSadeghi/Discord-Poll-Bot/issues"
+  },
+  "homepage": "https://github.com/BornaSadeghi/Discord-Poll-Bot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  }
+}
