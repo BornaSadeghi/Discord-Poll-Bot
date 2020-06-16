@@ -3,12 +3,13 @@ const fs = require("fs");
 const {token, prefix} = require("./config.json");
 
 const bot = new discord.Client();
-bot.commands = discord.Collection();
+bot.commands = new discord.Collection();
 
-const commandFiles = fs.readdirSync()
+const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 
 for (const file of commandFiles){
-    const command = require(`./commands/${file}`)
+    const command = require(`./commands/${file}`);
+    bot.commands.set(command.name, command);
 }
 
 function embed () {
@@ -37,7 +38,11 @@ bot.on("ready", () => {
 
 bot.on("message", (message) => {
     if (message.author.bot) return;
-    message.channel.send("hey");
+    message.channel.send(new discord.MessageEmbed()
+    .setAuthor(message.author.username)
+    .setTitle("Poll")
+    .setDescription("Poll description")
+    );
 });
 
 bot.on("messageReactionAdd", (reaction, user) => {
